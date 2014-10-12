@@ -5,6 +5,8 @@
 //  Created by Charan Srinivasan on 10/12/14.
 //  Copyright (c) 2014 Charan Srinivasan. All rights reserved.
 //
+// In this program I attempted to create a algo for calculating the magic square, but failed miserable. I instead also attached a script to calculate number of primes below an input number
+
 
 #include <stdio.h>
 int i;
