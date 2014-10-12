@@ -1,0 +1,185 @@
+//
+//  main.c
+//  LearningC
+//
+//  Created by Charan Srinivasan on 10/12/14.
+//  Copyright (c) 2014 Charan Srinivasan. All rights reserved.
+//
+
+#include <stdio.h>
+int i;
+const int n = 3;
+int matrix [n][n];
+int rowcolsum;
+
+void print_matrix()
+{
+    printf("\n");
+    for (int row = 0; row <n; row++)
+    {
+        for (int col = 0; col <n; col++)
+        {
+            printf("%01d ", matrix[row][col]);
+        }
+        printf("\n");
+    }
+}
+
+void generate_initial_matrix()
+{
+    // Generate Initial Matrix
+    i=1;
+    for (int row = 0; row <n; row++)
+    {
+        for (int col = 0; col <n; col++)
+        {
+            matrix[row][col]=i;
+            i++;
+        }
+    }
+    print_matrix();
+}
+
+void find_swap_min_max_row_values()
+{
+    // Find Max/Min Row Sum
+    int rowmax = 0;
+    int rowmin = n-1;
+    int rowsum = 0;
+    int rowsummax = rowcolsum;
+    int rowsummin = rowcolsum;
+    
+    for (int row = 0; row <n; row++)
+    {
+        rowsum = 0;
+        for (int col = 0; col <n; col++)
+        {
+            rowsum = rowsum + matrix [row][col];
+        }
+        if (rowsum>rowsummax)
+        {
+            rowsummax = rowsum;
+            rowmax = row;
+        }
+        if (rowsum<rowsummin)
+        {
+            rowsummin = rowsum;
+            rowmin = row;
+        }
+        
+    }
+    
+    printf("\n Max Row Sum %d", rowsummax);
+    printf("\n Max Row %d", rowmax);
+    printf("\n Min Row Sum %d", rowsummin);
+    printf("\n Min Row Sum %d", rowmin);
+    
+    int temp_row_max_val_max = 0;   // Max Value in Max Sum Row
+    int temp_col_max = 0;           // Column of Max Value in Max Sum Row
+    int temp_row_min_val_min = rowcolsum;   // Min Value in Min Sum Row
+    int temp_col_min = 0;           // Column of Min Value in Min Sum Row
+    
+    for (int col = 0; col <n; col++)
+    {
+        if (matrix[rowmax][col]>temp_row_max_val_max)
+        {
+            temp_col_max = col;
+            temp_row_max_val_max = matrix[rowmax][col];
+        }
+        if (matrix[rowmin][col]<temp_row_min_val_min)
+        {
+            temp_col_min = col;
+            temp_row_min_val_min = matrix[rowmin][col];
+        }
+    }
+    matrix[rowmax][temp_col_max] = temp_row_min_val_min;    // Swap values of min/max values
+    matrix[rowmin][temp_col_min] = temp_row_max_val_max;
+    
+    print_matrix();
+
+}
+
+void find_swap_min_max_col_values()
+{
+    // Find Max/Min Col Sum
+    int colmax = 0;
+    int colmin = n-1;
+    int colsum = 0;
+    int colsummax = rowcolsum;
+    int colsummin = rowcolsum;
+    
+    for (int col = 0; col <n; col++)
+    {
+        colsum = 0;
+        for (int row = 0; row <n; row++)
+        {
+            colsum = colsum + matrix [row][col];
+        }
+        if (colsum>colsummax)
+        {
+            colsummax = colsum;
+            colmax = col;
+        }
+        if (colsum<colsummin)
+        {
+            colsummin = colsum;
+            colmin = col;
+        }
+        
+    }
+    
+    printf("\n Max Col Sum %d", colsummax);
+    printf("\n Max Col %d", colmax);
+    printf("\n Min Col Sum %d", colsummin);
+    printf("\n Min Col Sum %d", colmin);
+    
+    int temp_col_max_val_max = 0;   // Max Value in Max Sum Row
+    int temp_row_max = 0;           // Column of Max Value in Max Sum Row
+    int temp_col_min_val_min = rowcolsum;   // Min Value in Min Sum Row
+    int temp_row_min = 0;           // Column of Min Value in Min Sum Row
+    
+    for (int row = 0; row <n; row++)
+    {
+        if (matrix[row][colmax]>temp_col_max_val_max)
+        {
+            temp_row_max = row;
+            temp_col_max_val_max = matrix[row][colmax];
+        }
+        if (matrix[row][colmin]<temp_col_min_val_min)
+        {
+            temp_row_min = row;
+            temp_col_min_val_min = matrix[row][colmin];
+        }
+    }
+    matrix[temp_row_max][colmax] = temp_col_min_val_min;    // Swap values of min/max values
+    matrix[temp_row_min][colmin] = temp_col_max_val_max;
+    
+    print_matrix();
+}
+
+int main(int argc, const char * argv[]) {
+    // insert code here...
+    
+    rowcolsum = n*n*(n*n+1)/(2*n); // Sum of first n2 numbers is n2*(n2+1)/2. Per row/col sum is this divided by n
+    printf("\nRow Columns Sum = %d", rowcolsum);
+
+    generate_initial_matrix();
+    find_swap_min_max_row_values();
+    find_swap_min_max_row_values();
+    find_swap_min_max_col_values();
+    find_swap_min_max_col_values();
+  
+    find_swap_min_max_row_values();
+    find_swap_min_max_row_values();
+    find_swap_min_max_col_values();
+    find_swap_min_max_col_values();
+  
+    find_swap_min_max_row_values();
+    find_swap_min_max_row_values();
+    find_swap_min_max_col_values();
+    find_swap_min_max_col_values();
+    
+    
+   
+
+}
