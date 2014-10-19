@@ -1,0 +1,59 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1343\cocoasubrtf130
+{\fonttbl\f0\fnil\fcharset0 Consolas-Bold;\f1\fnil\fcharset0 Consolas;\f2\fnil\fcharset0 Menlo-Regular;
+}
+{\colortbl;\red255\green255\blue255;\red38\green38\blue38;\red83\green83\blue83;}
+\margl1440\margr1440\vieww17380\viewh10320\viewkind0
+\deftab720
+\pard\pardeftab720
+
+\f0\b\fs30 \cf2 \expnd0\expndtw0\kerning0
+Question
+\f1\b0 \
+1. Login to mbed web site, export the "Hello World" program to all of the following targets. \
+   How many text files and how many lines of text code in the exported offline code package?  \
+   How many binary (library or object) files? \
+   How many files are different between (a) and (b)? (Use linux commands: find, wc, diff) (10 points)\
+   What is the "Entry point address:" of your program?  (hint: using readelf)\
+   \
+   a.	Exporting to uVision \
+   b.	Exporting to GCC ARM Embedded\
+
+\f0\b Answers
+\f1\b0 \
+1. Number of Files\
+	uVision - main.cpp, HelloWorld.uvopt, HelloWorld.uvproj, mbed.bld, mbed folder files (46 files)\
+	GCC ARM Embedded - main.cpp, Makefile, mbed.bld, \cf2 \expnd0\expndtw0\kerning0
+mbed folder files (46 files)\
+	* There also appears to be a .hg sub-folder for each but it is not visible in the \'93Finder\'94 (I use OS X). However, I was able to see them using ls on Terminal\
+	Lines of Text Code - HelloWorld.uvopt - 200, HelloWorld.uvproj - 423, Makefile (56)\
+	7 binary (library or object) files in uVision\
+	6 binary (library or object) files in GCC\
+\
+Diff\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f2\fs22 \cf0 \kerning1\expnd0\expndtw0 \CocoaLigature0 Only in GCC_ARM/: LPC1768.ld\
+Only in uVision: LPC1768.sct\
+Only in uVision: capi.ar\
+Binary files uVision/cmsis_nvic.o and GCC_ARM/cmsis_nvic.o differ\
+Binary files uVision/core_cm3.o and GCC_ARM/core_cm3.o differ\
+Only in GCC_ARM/: libcapi.a\
+Only in GCC_ARM/: libmbed.a\
+Only in uVision: mbed.ar\
+Binary files uVision/startup_LPC17xx.o and GCC_ARM/startup_LPC17xx.o differ\
+Only in uVision: sys.o\
+Binary files uVision/system_LPC17xx.o and GCC_ARM/system_LPC17xx.o differ\
+\
+\pard\pardeftab720\parhyphenfactor20
+
+\f1\fs24 \cf3 \expnd0\expndtw0\kerning0
+\CocoaLigature1  Entry point address:               0x8048310\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\fs30 \cf2 \expnd0\expndtw0\kerning0
+		\
+\pard\pardeftab720
+\cf2 	\
+	\cf2 \expnd0\expndtw0\kerning0
+\
+}
