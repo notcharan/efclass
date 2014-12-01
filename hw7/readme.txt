@@ -1,135 +1,56 @@
-{\rtf1\ansi\ansicpg1252\cocoartf1344\cocoasubrtf290
-{\fonttbl\f0\fnil\fcharset0 Consolas;}
-{\colortbl;\red255\green255\blue255;\red38\green38\blue38;\red234\green234\blue234;}
-\margl1440\margr1440\vieww10800\viewh8400\viewkind0
-\deftab720
+Objective: Study elua development environment
 
-\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
-\clmgf \clvertalt \clshdrawnil \clwWidth17360\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadl200 \clpadr200 \gaph\cellx4320
-\clmrg \clvertalt \clshdrawnil \clwWidth17360\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadl200 \clpadr200 \gaph\cellx8640
-\pard\intbl\itap1\pardeftab720
+Check out: https://github.com/Shengliang/elua.git
 
-\f0\fs24 \cf2 \expnd0\expndtw0\kerning0
-4357 Embedded Firmware Essentials\cell 
-\pard\intbl\itap1\cell \row
+Please use gitk to review those change logs. 
+  - apt-get install gitk
 
-\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
-\clvertalt \clshdrawnil \clwWidth17360\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadl200 \clpadr200 \gaph\cellx4320
-\clvertalt \clshdrawnil \clwWidth17360\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadl200 \clpadr200 \gaph\cellx8640
-\pard\intbl\itap1\pardeftab720
-\cf2 \cell 
-\pard\intbl\itap1\pardeftab720
-\cf2 \expnd0\expndtw0\kerning0
-\
-\cell \row
+- a new shell command in elua shell.
+- a new API that can be called from elua.
 
-\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
-\clvertalt \clshdrawnil \clwWidth1000\clftsWidth3 \clminw1000 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl200 \clpadr200 \gaph\cellx4320
-\clvertalt \clshdrawnil \clwWidth17360\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadl200 \clpadr200 \gaph\cellx8640
-\pard\intbl\itap1\pardeftab720
-\cf0 \expnd0\expndtw0\kerning0
-\cell 
-\pard\intbl\itap1\pardeftab720
-\cf2 \expnd0\expndtw0\kerning0
-- Program Assignment #3 10 points\cell \row
+This script requires some well-known Lua libraries to run.
+To install them on Ubuntu/Debian, go (as root):
+apt-get install luarocks
+luarocks install luafilesystem
+luarocks install lpack
+luarocks install md5
+ 
+Then, type "./build.sh" to compile.
 
-\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
-\clvertalt \clshdrawnil \clwWidth1000\clftsWidth3 \clminw1000 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl200 \clpadr200 \gaph\cellx4320
-\clvertalt \clshdrawnil \clwWidth17360\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadl200 \clpadr200 \gaph\cellx8640
-\pard\intbl\itap1\pardeftab720
-\cf0 \expnd0\expndtw0\kerning0
-\cell 
-\pard\intbl\itap1\pardeftab720
-\cf2 \expnd0\expndtw0\kerning0
-- Objective\cell \row
+Study Notes:
+How to create a cscope?
+   find . -name "*.[chS]" > cscope.files
+   vi cscope.files
+   cscope
 
-\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
-\clvertalt \clshdrawnil \clwWidth1000\clftsWidth3 \clminw1000 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl200 \clpadr200 \gaph\cellx4320
-\clvertalt \clshdrawnil \clwWidth17360\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadl200 \clpadr200 \gaph\cellx8640
-\pard\intbl\itap1\pardeftab720
-\cf0 \expnd0\expndtw0\kerning0
-\cell 
-\pard\intbl\itap1\pardeftab720
-\cf2 \expnd0\expndtw0\kerning0
-   1. Understand different between C++ and C APIs in mbed environment\cell \row
+How to create & appy a git patch?
+ git ls-remote https://github.com/shengliang/e4357.git 
 
-\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
-\clvertalt \clshdrawnil \clwWidth1000\clftsWidth3 \clminw1000 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl200 \clpadr200 \gaph\cellx4320
-\clvertalt \clshdrawnil \clwWidth17360\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadl200 \clpadr200 \gaph\cellx8640
-\pard\intbl\itap1\pardeftab720
-\cf0 \expnd0\expndtw0\kerning0
-\cell 
-\pard\intbl\itap1\pardeftab720
-\cf2 \expnd0\expndtw0\kerning0
-   2. Control Digital IOs from a C or C++ code.\cell \row
+# git: create a patch from top cl
+   git show [hashID]
+   git format-patch HEAD~
 
-\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
-\clvertalt \clshdrawnil \clwWidth17360\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadl200 \clpadr200 \gaph\cellx4320
-\clvertalt \clshdrawnil \clwWidth17360\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadl200 \clpadr200 \gaph\cellx8640
-\pard\intbl\itap1\pardeftab720
-\cf2 \cell 
-\pard\intbl\itap1\pardeftab720
-\cf2 \expnd0\expndtw0\kerning0
-\
-\cell \row
+   # extract 2 topmost commits
+   git format-patch -2
 
-\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
-\clvertalt \clshdrawnil \clwWidth1000\clftsWidth3 \clminw1000 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl200 \clpadr200 \gaph\cellx4320
-\clvertalt \clshdrawnil \clwWidth17360\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadl200 \clpadr200 \gaph\cellx8640
-\pard\intbl\itap1\pardeftab720
-\cf0 \expnd0\expndtw0\kerning0
-\cell 
-\pard\intbl\itap1\pardeftab720
-\cf2 \expnd0\expndtw0\kerning0
-1. Read Chapter 1,2,3, and Chapter 14\cell \row
+# apply a patch
+   git am <...patch>
 
-\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
-\clvertalt \clshdrawnil \clwWidth1000\clftsWidth3 \clminw1000 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl200 \clpadr200 \gaph\cellx4320
-\clvertalt \clshdrawnil \clwWidth17360\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadl200 \clpadr200 \gaph\cellx8640
-\pard\intbl\itap1\pardeftab720
-\cf0 \expnd0\expndtw0\kerning0
-\cell 
-\pard\intbl\itap1\pardeftab720
-\cf2 \expnd0\expndtw0\kerning0
-   Program Example 14.1 Manipulating control registers to flash an LED\cell \row
+# add files
+   git diff
+   git status
+   git add build.sh
+   git add src/shell/shell_mem.c
+   git commit -a -m 'shell: add md'
+   git commit -a -m 'lua: add md'
+   git commit -a --amend 
 
-\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
-\clvertalt \clshdrawnil \clwWidth1000\clftsWidth3 \clminw1000 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl200 \clpadr200 \gaph\cellx4320
-\clvertalt \clshdrawnil \clwWidth17360\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadl200 \clpadr200 \gaph\cellx8640
-\pard\intbl\itap1\pardeftab720
-\cf0 \expnd0\expndtw0\kerning0
-\cell 
-\pard\intbl\itap1\pardeftab720
-\cf2 \expnd0\expndtw0\kerning0
-   Program Example 14.3 Combined digital input and output.\cell \row
+# checkin local branch to remote branches
+   git remote -v
+   git push origin local_branch_name:remote_branch_name
+   git push origin master:master
+   git push origin :remtoe_branch_name  //delete a remote branhc
 
-\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
-\clvertalt \clshdrawnil \clwWidth1000\clftsWidth3 \clminw1000 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl200 \clpadr200 \gaph\cellx4320
-\clvertalt \clshdrawnil \clwWidth17360\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadl200 \clpadr200 \gaph\cellx8640
-\pard\intbl\itap1\pardeftab720
-\cf0 \expnd0\expndtw0\kerning0
-\cell 
-\pard\intbl\itap1\pardeftab720
-\cf2 \expnd0\expndtw0\kerning0
-   Compile and download Program Example 14.1 and 14.3 into your mbed board.\cell \row
-
-\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
-\clvertalt \clshdrawnil \clwWidth17360\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadl200 \clpadr200 \gaph\cellx4320
-\clvertalt \clshdrawnil \clwWidth17360\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadl200 \clpadr200 \gaph\cellx8640
-\pard\intbl\itap1\pardeftab720
-\cf2 \cell 
-\pard\intbl\itap1\pardeftab720
-\cf2 \expnd0\expndtw0\kerning0
-\
-\cell \row
-
-\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
-\clvertalt \clshdrawnil \clwWidth1000\clftsWidth3 \clminw1000 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl200 \clpadr200 \gaph\cellx4320
-\clvertalt \clshdrawnil \clwWidth17360\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadl200 \clpadr200 \gaph\cellx8640
-\pard\intbl\itap1\pardeftab720
-\cf0 \expnd0\expndtw0\kerning0
-\cell 
-\pard\intbl\itap1\pardeftab720
-\cf2 \expnd0\expndtw0\kerning0
-2. Read https://github.com/Shengliang/mbed.git\cell \lastrow\row
-}
+# change remote url
+   git remote set-url origin git://new.url.here
+   git push origin master:master
